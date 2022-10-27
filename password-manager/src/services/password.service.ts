@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
 export interface PasswordCard {
-  id?: string | null | undefined;
-  url: string | null | undefined;
-  name: string | null | undefined;
-  username: string | null | undefined;
-  password: string | null | undefined;
+  id?: string;
+  url: string;
+  name: string;
+  username: string;
+  password: string;
+}
+
+interface SearchParams {
+  term: string;
 }
 
 @Injectable()
@@ -18,8 +22,8 @@ export class PasswordService {
 
   constructor(private http: HttpClient) { }
 
-  get(): Observable<PasswordCard[]> {
-    return this.http.get<PasswordCard[]>(this.BASE_URL)
+  get({ term }: SearchParams = { term: '' }): Observable<PasswordCard[]> {
+    return this.http.get<PasswordCard[]>(this.BASE_URL, { params: new HttpParams().set('term', term) })
   }
 
   create(passwordCard: PasswordCard) {

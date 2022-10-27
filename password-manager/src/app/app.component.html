@@ -1,5 +1,5 @@
 <div class="bg-gray-100" style="height: 100vh;">
-  <app-responsive-navigation (submit)="addPassword($event)"></app-responsive-navigation>
+  <app-responsive-navigation (search)="searchPassword($event)" (submit)="addPassword($event)"></app-responsive-navigation>
   <div class="flex flex-wrap mt-5">
     <div *ngFor="let password of passwords; let idx = index" class="sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4">
       <app-password-card 

@@ -20,6 +20,12 @@ export class AppComponent implements OnInit {
     });
   }
 
+  searchPassword(term: string) {
+    this.passwordService.get({ term }).subscribe(passwords => {
+      this.passwords = passwords;
+    })
+  }
+
   addPassword(passwordCard: PasswordCard) {
     this.passwords.push(passwordCard)
   }

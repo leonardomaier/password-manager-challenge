@@ -86,11 +86,13 @@ export class PasswordFormModalComponent implements OnInit {
     const { url, name, username, password } = this.passwordForm.value;
 
     const passwordCard: PasswordCard = {
-      url,
-      name,
-      username,
-      password
+      url: url || '',
+      name: name || '',
+      username: username || '',
+      password: password || ''
     };
+
+    if (!this.passwordForm.valid) return;
 
     if (this.isEditing) {
       this.doUpdate(passwordCard)

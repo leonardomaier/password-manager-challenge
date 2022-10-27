@@ -12,6 +12,18 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/password-cards', (req, res) => {
+
+  const { term } = req.query;
+
+  if (term) {
+    const matches = passwordCardList.filter(password => 
+      password.name.toLowerCase().includes(term.toLowerCase())
+    )
+    
+    res.send(matches).status(200)
+    return;
+  }
+
   res.send(passwordCardList).status(200);
 })
 

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { PasswordCard } from 'src/services/password.service';
+import { FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, Observable, tap } from 'rxjs';
+import { PasswordCard, PasswordService } from 'src/services/password.service';
 
 @Component({
   selector: 'app-responsive-navigation',
@@ -9,12 +10,27 @@ import { PasswordCard } from 'src/services/password.service';
 })
 export class ResponsiveNavigationComponent implements OnInit {
 
+  public searchField: FormControl;
+
   @Output()
   public submit = new EventEmitter<PasswordCard>();
 
-  constructor() { }
+  @Output()
+  public search = new EventEmitter<string>();
 
-  ngOnInit(): void {}
+  constructor(private passwordService: PasswordService) { }
+
+  ngOnInit(): void {
+    this.searchField = new FormControl();
+    this.searchField.valueChanges.pipe(
+      debounceTime(400),
+      distinctUntilChanged()
+    ).subscribe(() => this.onSearch());
+  }
+
+  onSearch() {
+    this.search.emit(this.searchField.value);
+  }
 
   onSave(passwordCard: PasswordCard) {
     this.submit.emit(passwordCard);
