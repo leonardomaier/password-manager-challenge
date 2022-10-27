@@ -29,7 +29,6 @@ export class PasswordCardComponent implements OnInit {
   }
 
   edit(passwordCard: PasswordCard) {
-    console.log(passwordCard);
     this.onEdit.emit(passwordCard);
   }
 }

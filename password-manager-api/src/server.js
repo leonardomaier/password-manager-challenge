@@ -41,8 +41,6 @@ app.put('/password-cards/:id', (req, res) => {
 
   const { error: validationError } = passwordCardSchema.validate(data)
 
-  console.log(validationError);
-
   if (validationError) {
     res.status(400).json({ error: 'Invalid fields' });
     return;
