@@ -31,6 +31,10 @@ export class PasswordFormModalComponent implements OnInit {
 
   public isEditing: boolean = false;
 
+  public showPassword: boolean = false;
+
+  public clipboardFull: boolean = false;
+
   public passwordForm = new FormGroup({
     url: new FormControl('', {
       validators: [Validators.required]
@@ -96,8 +100,21 @@ export class PasswordFormModalComponent implements OnInit {
     this.doSave(passwordCard);
   }
 
+  copyToClipboard(text: any) {
+    navigator.clipboard.writeText(text).then(() => {
+      this.clipboardFull = true;
+    }).catch(() => {
+      console.error("Unable to copy text");
+    });
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword
+  }
+
   onModalButtonClick() {
     this.isEditing = false;
+    this.clipboardFull = false;
 
     if (this.passwordCard) {
       this.passwordForm.patchValue(this.passwordCard);
