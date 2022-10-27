@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, interval, Observable, tap } from 'rxjs';
-import { PasswordCard, PasswordService } from 'src/services/password.service';
+import { PasswordCard, PasswordService } from '../services/password.service';
 
 @Component({
   selector: 'app-root',

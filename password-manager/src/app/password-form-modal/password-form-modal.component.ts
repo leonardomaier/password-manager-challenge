@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { PasswordCard, PasswordService } from 'src/services/password.service';
+import { PasswordCard, PasswordService } from '../../services/password.service';
 import { ModalComponent } from '../modal/modal.component';
 
 @Component({
@@ -103,6 +103,9 @@ export class PasswordFormModalComponent implements OnInit {
   }
 
   copyToClipboard(text: any) {
+
+    if (!text) return;
+
     navigator.clipboard.writeText(text).then(() => {
       this.clipboardFull = true;
     }).catch(() => {

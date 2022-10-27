@@ -10,7 +10,7 @@ import { ModalComponent } from './modal/modal.component';
 import { PasswordFormModalComponent } from './password-form-modal/password-form-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { PasswordService } from 'src/services/password.service';
+import { PasswordService } from '../services/password.service';
 import { ToastrModule } from 'ngx-toastr';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 

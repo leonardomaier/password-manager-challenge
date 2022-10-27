@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Observable, tap } from 'rxjs';
-import { PasswordCard } from 'src/services/password.service';
+import { PasswordCard } from '../../services/password.service';
 
 @Component({
   selector: 'app-responsive-navigation',

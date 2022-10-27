@@ -7,10 +7,6 @@
 
 ## How to run
 
-Execute the shellscript by running `sh run-all.sh` (you may need to give permission by executing `chdmod +x run-all.sh`)
-
-Or you can run each project manually:
-
 - Go to `password-manager`
 - Run `npm install` or `yarn install` to install all dependencies
 - `npm start`

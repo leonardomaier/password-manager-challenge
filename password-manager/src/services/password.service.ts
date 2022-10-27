@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
 
 export interface PasswordCard {
@@ -18,7 +18,7 @@ interface SearchParams {
 @Injectable()
 export class PasswordService {
 
-  private BASE_URL = "http://localhost:3000/password-cards"
+  private BASE_URL = `${environment.baseUrl}/password-cards`
 
   constructor(private http: HttpClient) { }
 

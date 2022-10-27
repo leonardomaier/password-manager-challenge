@@ -1,7 +1,10 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { PasswordService } from 'src/services/password.service';
+import { PasswordService } from '../../services/password.service';
+import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
+import { ModalComponent } from '../modal/modal.component';
 
 import { PasswordFormModalComponent } from './password-form-modal.component';
 
@@ -11,11 +14,11 @@ describe('PasswordFormModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ HttpClientModule, ToastrModule.forRoot() ],
-      declarations: [ PasswordFormModalComponent ],
-      providers: [ PasswordService ]
+      imports: [HttpClientModule, ToastrModule.forRoot(), ReactiveFormsModule],
+      declarations: [PasswordFormModalComponent, ModalComponent, ConfirmModalComponent, PasswordFormModalComponent],
+      providers: [PasswordService]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PasswordFormModalComponent);
     component = fixture.componentInstance;

@@ -1,7 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ToastrModule } from 'ngx-toastr';
-import { PasswordService } from 'src/services/password.service';
+import { PasswordService } from '../../services/password.service';
+import { ModalComponent } from '../modal/modal.component';
 
 import { ConfirmModalComponent } from './confirm-modal.component';
 
@@ -12,7 +13,7 @@ describe('ConfirmModalComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ HttpClientModule, ToastrModule.forRoot() ],
-      declarations: [ ConfirmModalComponent ],
+      declarations: [ ConfirmModalComponent, ModalComponent ],
       providers: [ PasswordService ]
     })
     .compileComponents();

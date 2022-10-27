@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { PasswordCard } from 'src/services/password.service';
+import { PasswordCard } from '../../services/password.service';
 
 @Component({
   selector: 'app-password-card',

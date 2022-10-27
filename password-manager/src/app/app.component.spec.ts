@@ -1,18 +1,26 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { PasswordService } from 'src/services/password.service';
+import { ToastrModule } from 'ngx-toastr';
+import { PasswordService } from '../services/password.service';
 import { AppComponent } from './app.component';
+import { ModalComponent } from './modal/modal.component';
+import { PasswordFormModalComponent } from './password-form-modal/password-form-modal.component';
+import { ResponsiveNavigationComponent } from './responsive-navigation/responsive-navigation.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientModule
+        HttpClientModule,
+        ToastrModule.forRoot()
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        ResponsiveNavigationComponent,
+        PasswordFormModalComponent,
+        ModalComponent
       ],
       providers: [ PasswordService ]
     }).compileComponents();
