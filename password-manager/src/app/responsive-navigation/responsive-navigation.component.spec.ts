@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { PasswordService } from '../../services/password.service';
+import { FormInputComponent } from '../form-input/form-input.component';
 import { ModalComponent } from '../modal/modal.component';
 import { PasswordFormModalComponent } from '../password-form-modal/password-form-modal.component';
 
@@ -14,7 +15,7 @@ describe('ResponsiveNavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ResponsiveNavigationComponent, PasswordFormModalComponent, ModalComponent ],
+      declarations: [ ResponsiveNavigationComponent, PasswordFormModalComponent, ModalComponent, FormInputComponent ],
       imports: [ HttpClientModule, ToastrModule.forRoot(), ReactiveFormsModule ],
       providers: [ PasswordService ]
     })

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { PasswordCard, PasswordService } from '../../services/password.service';
+import { FormInputComponent } from '../form-input/form-input.component';
 import { ModalComponent } from '../modal/modal.component';
 
 @Component({
@@ -50,6 +51,10 @@ export class PasswordFormModalComponent implements OnInit {
     })
   })
 
+  get form(): FormGroup {
+    return this.passwordForm
+  }
+
   constructor(
     private passwordService: PasswordService,
     private toastrService: ToastrService
@@ -92,7 +97,12 @@ export class PasswordFormModalComponent implements OnInit {
       password: password || ''
     };
 
-    if (!this.passwordForm.valid) return;
+    if (!this.passwordForm.valid) {
+      Object.keys(this.passwordForm.controls).forEach((control: string) => {
+        this.passwordForm.get(control)?.markAsDirty();
+      });
+      return;
+    }
 
     if (this.isEditing) {
       this.doUpdate(passwordCard)
@@ -102,9 +112,9 @@ export class PasswordFormModalComponent implements OnInit {
     this.doSave(passwordCard);
   }
 
-  copyToClipboard(input: HTMLInputElement) {
+  copyToClipboard(input: FormInputComponent) {
 
-    const content = input.value;
+    const content = input.control?.value;
 
     if (!content) return;
 

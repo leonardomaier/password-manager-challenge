@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PasswordService } from '../services/password.service';
 import { ToastrModule } from 'ngx-toastr';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
+import { FormInputComponent } from './form-input/form-input.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
     ModalComponent,
     PasswordFormModalComponent,
     ConfirmModalComponent,
+    FormInputComponent,
   ],
   imports: [
     BrowserModule,
