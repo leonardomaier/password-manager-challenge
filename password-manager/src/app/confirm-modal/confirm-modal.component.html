@@ -1,0 +1,15 @@
+<app-modal [buttonColor]="buttonColor" [modalTitle]="buttonText" [buttonText]="buttonText">
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <p class="text-md">Are you sure you want to delete it?</p>
+    </div>
+    <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+      <button class="text-xs bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded mr-2" type="button"
+        (click)="cancel()">
+        Close
+      </button>
+      <button class="text-xs bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded mr-2" type="button"
+        (click)="confirm()">
+        Yes, please confirm
+      </button>
+    </div>
+</app-modal>
