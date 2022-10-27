@@ -1,0 +1,13 @@
+<div [formGroup]="formGroup">
+  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-{{ controlName }}">
+    {{ label }} <span *ngIf="required" class="text-red-500">*</span>
+  </label>
+  <input [formControlName]="controlName" autocomplete="off" [required]="required"
+    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+    id="grid-{{ controlName }}" [type]="type" [placeholder]="placeholder">
+  <div *ngIf="control?.invalid && control?.errors && (control?.dirty || control?.touched)">
+    <small class="text-red-500" >
+      This field is required.
+    </small>
+  </div>
+</div>
