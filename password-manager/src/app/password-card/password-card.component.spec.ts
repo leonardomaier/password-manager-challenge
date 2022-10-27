@@ -14,6 +14,13 @@ describe('PasswordCardComponent', () => {
 
     fixture = TestBed.createComponent(PasswordCardComponent);
     component = fixture.componentInstance;
+    component.passwordCard = {
+      id: '1',
+      name: 'Test password',
+      url: 'test@test.com',
+      username: 'email@test.com',
+      password: 'Password@123'
+    }
     fixture.detectChanges();
   });
 
