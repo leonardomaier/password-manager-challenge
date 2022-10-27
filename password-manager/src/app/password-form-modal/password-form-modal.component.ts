@@ -102,11 +102,13 @@ export class PasswordFormModalComponent implements OnInit {
     this.doSave(passwordCard);
   }
 
-  copyToClipboard(text: any) {
+  copyToClipboard(input: HTMLInputElement) {
 
-    if (!text) return;
+    const content = input.value;
 
-    navigator.clipboard.writeText(text).then(() => {
+    if (!content) return;
+
+    navigator.clipboard.writeText(content).then(() => {
       this.clipboardFull = true;
     }).catch(() => {
       console.error("Unable to copy text");
