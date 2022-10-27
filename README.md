@@ -7,6 +7,7 @@
 
 ## How to run
 
+- First, you need to clone the repository by executing `git clone https://github.com/leonardomaier/password-manager-challenge.git`
 - Go to `password-manager`
 - Run `npm install` or `yarn install` to install all dependencies
 - `npm start`
